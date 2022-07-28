@@ -3,12 +3,17 @@ import { api, AxiosResponse } from "./axios";
 import { Pokemon, Pokemons } from "./../models/pokemon";
 
 export const getPokemons = async () => {
-	const { data } = await api.request<AxiosResponse<Pokemon[]>>({
+	const { data } = await api.request<AxiosResponse<Pokemons[]>>({
 		method: "GET",
 		url: "pokemon",
 	});
 
-	return data;
+	const pokemonsWithType: AxiosResponse<Pokemons[]> = {
+		...data,
+		results: data.results.map((pokemon) => ({ ...pokemon, type: "normal" })),
+	};
+
+	return pokemonsWithType;
 };
 
 export const getPokemon = async (name: string) => {

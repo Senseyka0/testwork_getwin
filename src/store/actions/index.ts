@@ -1,4 +1,4 @@
-import * as PokemonActionCreators from "./pokemonAction";
+import * as PokemonActionCreators from "./pokemonsAction";
 
 export default {
 	...PokemonActionCreators,

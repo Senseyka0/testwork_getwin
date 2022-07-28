@@ -1,6 +1,6 @@
 import { AxiosError } from "axios";
 import { AppDispatch } from "..";
-import { PokemonConstants } from "../types/pokemonType";
+import { PokemonConstants } from "../types/pokemonsType";
 
 import { getPokemons } from "../../api/pokemon";
 

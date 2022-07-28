@@ -1,4 +1,15 @@
-import { Pokemon } from "../../models/pokemon";
+import { Pokemons, Type } from "../../models/pokemon";
+
+type Grid = "list" | "module";
+
+export interface PokemonsState {
+	pokemons: Pokemons[];
+	isLoading: boolean;
+	error: string;
+	grid: Grid;
+	searchValue: string;
+	type: Type;
+}
 
 export enum PokemonConstants {
 	fetching = "FETCH_POKEMONS",
@@ -6,18 +17,12 @@ export enum PokemonConstants {
 	error = "FETCH_POKEMONS_ERROR",
 }
 
-export interface PokemonState {
-	pokemons: Pokemon[];
-	isLoading: boolean;
-	error: string;
-}
-
 interface fetchPokemonAction {
 	type: PokemonConstants.fetching;
 }
 interface fetchPokemonSuccessAction {
 	type: PokemonConstants.success;
-	payload: Pokemon[];
+	payload: Pokemons[];
 }
 interface fetchPokemonErrorAction {
 	type: PokemonConstants.error;

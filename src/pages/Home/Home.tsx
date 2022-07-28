@@ -1,9 +1,9 @@
-import { Search, Sort, Toggle } from "./components";
+import { Pokemons, Search, Sort, Toggle } from "./components";
 
-const Home = ({}: Props) => {
+const Home = () => {
 	return (
-		<div className="wrapper">
-			<div className="filterWrapper">
+		<div className="home-wrapper">
+			<div className="filter-wrapper">
 				<div className="search">
 					<Search />
 				</div>
@@ -17,8 +17,8 @@ const Home = ({}: Props) => {
 				</div>
 			</div>
 
-			<div className="pokemonsWrapper">
-				<div className="pokemon"></div>
+			<div className="pokemons-wrapper">
+				<Pokemons />
 			</div>
 		</div>
 	);

@@ -1,10 +1,23 @@
-.wrapper {
-
-}
-
-.filterWrapper {
+.filter-wrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
 
+.pokemons-wrapper {
+  margin-top: 40px;
+}
+
+.pokemon {
+  margin-bottom: 10px;
+  padding: 20px;
+
+  border: 1px solid #eee;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+
+  &:hover {
+    background-color: #eee;
+  }
 }

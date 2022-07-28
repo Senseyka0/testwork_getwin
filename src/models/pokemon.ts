@@ -1,7 +1,10 @@
 export interface Pokemons {
 	name: string;
 	url: string;
+	type: Type;
 }
+
+export type Type = "bold" | "normal";
 
 export interface Pokemon {
 	abilities: Ability[];
@@ -20,7 +23,7 @@ export interface Pokemon {
 	species: Species;
 	sprites: Sprites;
 	stats: Stat[];
-	types: Type[];
+	types: {};
 	weight: number;
 }
 
@@ -333,9 +336,4 @@ export interface Stat {
 export interface Type2 {
 	name: string;
 	url: string;
-}
-
-export interface Type {
-	slot: number;
-	type: Type2;
 }
