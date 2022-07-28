@@ -8,5 +8,5 @@ export interface AxiosResponse<T> {
 	count: number;
 	next: string;
 	previous: string;
-	results: T[];
+	results: T;
 }
