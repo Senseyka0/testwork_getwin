@@ -1,17 +1,17 @@
-import { MouseEvent, useState } from "react";
+import { MouseEvent } from "react";
 import { ToggleButton, ToggleButtonGroup } from "@mui/material";
 import ViewListIcon from "@mui/icons-material/ViewList";
 import ViewModuleIcon from "@mui/icons-material/ViewModule";
 
-const Toggle = () => {
-	const [view, setView] = useState("list");
+import { Grid } from "../../../models/pokemon";
 
-	const handleChange = (_: MouseEvent<HTMLElement>, nextView: string) => {
-		setView(nextView);
+const Toggle = ({ onChange, value }: Props) => {
+	const onToggle = (_: MouseEvent<HTMLElement>, nextView: Grid) => {
+		onChange(nextView);
 	};
 
 	return (
-		<ToggleButtonGroup value={view} exclusive onChange={handleChange}>
+		<ToggleButtonGroup exclusive value={value} onChange={onToggle}>
 			<ToggleButton value="list">
 				<ViewListIcon />
 			</ToggleButton>
@@ -23,4 +23,8 @@ const Toggle = () => {
 	);
 };
 
+interface Props {
+	onChange: (value: Grid) => void;
+	value: Grid;
+}
 export default Toggle;

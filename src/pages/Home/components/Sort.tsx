@@ -1,15 +1,14 @@
-import { useState } from "react";
 import { MenuItem, Select, SelectChangeEvent } from "@mui/material";
 
-const Sort = () => {
-	const [age, setAge] = useState("none");
+import { Type } from "../../../models/pokemon";
 
-	const handleChangeS = (event: SelectChangeEvent) => {
-		setAge(event.target.value);
+const Sort = ({ onChange, value }: Props) => {
+	const onSort = (event: SelectChangeEvent) => {
+		onChange(event.target.value as Type);
 	};
 
 	return (
-		<Select value={age} label="Type" onChange={handleChangeS}>
+		<Select label="Type" value={value} onChange={onSort}>
 			<MenuItem value="none">None</MenuItem>
 			<MenuItem value={10}>Ten</MenuItem>
 			<MenuItem value={20}>Twenty</MenuItem>
@@ -18,4 +17,8 @@ const Sort = () => {
 	);
 };
 
+interface Props {
+	onChange: (value: Type) => void;
+	value: Type;
+}
 export default Sort;

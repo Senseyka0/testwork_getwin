@@ -17,7 +17,7 @@ export const getPokemons = async () => {
 };
 
 export const getPokemon = async (name: string) => {
-	const { data } = await api.request<AxiosResponse<Pokemon[]>>({
+	const { data } = await api.request<Pokemon>({
 		method: "GET",
 		url: `pokemon/${name}`,
 	});

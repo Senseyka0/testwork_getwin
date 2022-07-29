@@ -1,19 +1,34 @@
 import { AxiosError } from "axios";
 import { AppDispatch } from "..";
-import { PokemonConstants } from "../types/pokemonsType";
 
 import { getPokemons } from "../../api/pokemon";
 
+import { PokemonsConstants } from "../types/pokemonsType";
+import { Grid, Type } from "../../models/pokemon";
+
 export const fetchPokemons = () => {
 	return async (dispatch: AppDispatch) => {
-		dispatch({ type: PokemonConstants.fetching });
+		dispatch({ type: PokemonsConstants.fetching });
 
 		try {
 			const { results } = await getPokemons();
 
-			dispatch({ type: PokemonConstants.success, payload: results });
+			dispatch({ type: PokemonsConstants.success, payload: results });
 		} catch (error) {
-			dispatch({ type: PokemonConstants.error, payload: (error as AxiosError).message });
+			dispatch({ type: PokemonsConstants.error, payload: (error as AxiosError).message });
 		}
 	};
 };
+export const setSearchValue = (searchValue: string) => ({
+	type: PokemonsConstants.searchValue,
+	payload: searchValue,
+});
+
+export const setGrid = (grid: Grid) => ({
+	type: PokemonsConstants.grid,
+	payload: grid,
+});
+export const setType = (type: Type) => ({
+	type: PokemonsConstants.type,
+	payload: type,
+});

@@ -5,6 +5,7 @@ export interface Pokemons {
 }
 
 export type Type = "bold" | "normal";
+export type Grid = "list" | "module";
 
 export interface Pokemon {
 	abilities: Ability[];
