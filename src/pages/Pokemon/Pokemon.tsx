@@ -22,7 +22,25 @@ const Pokemon = () => {
 
 	if (error) return <div>{error}</div>;
 
-	return <div>{pokemon?.name}</div>;
+	return (
+		<div>
+			<h1>{pokemon?.name}</h1>
+
+			<div className="moves">
+				moves:{" "}
+				{pokemon?.moves.map((move) => (
+					<span className="move">{move.move.name}, </span>
+				))}
+			</div>
+
+			<div className="stats">
+				stats:{" "}
+				{pokemon?.stats.map((stat) => (
+					<span className="stat">{stat.stat.name}, </span>
+				))}
+			</div>
+		</div>
+	);
 };
 
 interface UrlProps {
