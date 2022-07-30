@@ -24,6 +24,13 @@ const Pokemon = () => {
 
 	return (
 		<div>
+			<img
+				src={"https://static.posters.cz/image/1300/Плакати/pokemon-pikachu-neon-i71936.jpg"}
+				alt={pokemon?.name}
+				width={200}
+				height={300}
+			/>
+
 			<h1>{pokemon?.name}</h1>
 
 			<div className="moves">

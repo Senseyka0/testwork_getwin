@@ -6,6 +6,16 @@
 
 .pokemons-wrapper {
   margin-top: 40px;
+
+  &.module {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 24px;
+
+    @media (max-width: 768px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
 }
 
 .pokemon {
