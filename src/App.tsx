@@ -7,6 +7,8 @@ import { Home, Pokemon } from "./pages";
 import { Content } from "./layouts";
 
 const App = () => {
+	// PokeApi doesn't have a search endpoint (maybe i just didn't find it) and i decided to search in the client side.
+
 	return (
 		<div className="wrapper">
 			<Header />

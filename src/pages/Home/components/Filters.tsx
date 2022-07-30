@@ -1,4 +1,5 @@
-import { useActions, useTypedSelector } from "../../../hooks/redux";
+import { useActions, useTypedSelector } from "../../../hooks";
+
 import { Grid, Type } from "../../../models/pokemon";
 
 import { Search, Sort, Toggle } from "./";

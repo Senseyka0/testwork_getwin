@@ -9,10 +9,8 @@ const Sort = ({ onChange, value }: Props) => {
 
 	return (
 		<Select label="Type" value={value} onChange={onSort}>
-			<MenuItem value="none">None</MenuItem>
-			<MenuItem value={10}>Ten</MenuItem>
-			<MenuItem value={20}>Twenty</MenuItem>
-			<MenuItem value={30}>Thirty</MenuItem>
+			<MenuItem value="normal">Normal</MenuItem>
+			<MenuItem value={"bold"}>Bold</MenuItem>
 		</Select>
 	);
 };

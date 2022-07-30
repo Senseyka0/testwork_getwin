@@ -2,10 +2,14 @@ import { api, AxiosResponse } from "./axios";
 
 import { Pokemon, Pokemons } from "./../models/pokemon";
 
-export const getPokemons = async () => {
+export const getPokemons = async (currentPage: number = 1) => {
 	const { data } = await api.request<AxiosResponse<Pokemons[]>>({
 		method: "GET",
 		url: "pokemon",
+		params: {
+			limit: 21,
+			offset: currentPage,
+		},
 	});
 
 	const pokemonsWithType: AxiosResponse<Pokemons[]> = {

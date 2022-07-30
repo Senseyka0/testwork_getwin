@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 
-import { useActions, useTypedSelector } from "../../hooks/redux";
+import { useActions, useTypedSelector } from "../../hooks";
 
 const Pokemon = () => {
 	// get params from url
@@ -36,14 +36,18 @@ const Pokemon = () => {
 			<div className="moves">
 				moves:{" "}
 				{pokemon?.moves.map((move) => (
-					<span className="move">{move.move.name}, </span>
+					<span className="move" key={move.move.name}>
+						{move.move.name},{" "}
+					</span>
 				))}
 			</div>
 
 			<div className="stats">
 				stats:{" "}
 				{pokemon?.stats.map((stat) => (
-					<span className="stat">{stat.stat.name}, </span>
+					<span className="stat" key={stat.stat.name}>
+						{stat.stat.name},{" "}
+					</span>
 				))}
 			</div>
 		</div>

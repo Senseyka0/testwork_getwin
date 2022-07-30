@@ -7,6 +7,8 @@ export interface PokemonsState {
 	grid: Grid;
 	searchValue: string;
 	type: Type;
+	currentPage: number;
+	totalPages: number;
 }
 
 export enum PokemonsConstants {
@@ -16,6 +18,8 @@ export enum PokemonsConstants {
 	grid = "SET_GRID",
 	searchValue = "SET_SEARCH_VALUE",
 	type = "SET_TYPE",
+	currentPage = "SET_CURRENT_PAGE",
+	totalPages = "SET_TOTAL_PAGES",
 }
 
 interface fetchPokemonsAction {
@@ -23,7 +27,7 @@ interface fetchPokemonsAction {
 }
 interface fetchPokemonsSuccessAction {
 	type: PokemonsConstants.success;
-	payload: Pokemons[];
+	payload: { results: Pokemons[]; count: number };
 }
 interface fetchPokemonsErrorAction {
 	type: PokemonsConstants.error;
@@ -39,15 +43,27 @@ interface setSearchValueAction {
 	payload: string;
 }
 
-interface setTyeAction {
+interface setTypeAction {
 	type: PokemonsConstants.type;
 	payload: Type;
 }
 
-export type PokemonAction =
+interface setCurrentPageAction {
+	type: PokemonsConstants.currentPage;
+	payload: number;
+}
+
+interface setTotalPagesAction {
+	type: PokemonsConstants.totalPages;
+	payload: number;
+}
+
+export type PokemonsAction =
 	| fetchPokemonsAction
 	| fetchPokemonsSuccessAction
 	| fetchPokemonsErrorAction
 	| setGridAction
 	| setSearchValueAction
-	| setTyeAction;
+	| setTypeAction
+	| setCurrentPageAction
+	| setTotalPagesAction;
